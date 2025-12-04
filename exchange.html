@@ -2,11 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+
+    <!-- iOS-specific meta tags -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="SA Agri Exchange">
+    <meta name="theme-color" content="#10b981">
+
     <title>Exchange - SA Agri Tokens</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="exchange.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Stellar SDK from CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stellar-sdk/11.2.2/stellar-sdk.min.js"></script>
 </head>
 <body>
     <!-- Navigation -->
@@ -37,8 +47,8 @@
     <section class="exchange-section">
         <div class="container">
             <div class="exchange-header">
-                <h1>Token Exchange</h1>
-                <p>Trade South African agricultural commodity tokens on the Stellar network</p>
+                <h1>🪙 Token Exchange</h1>
+                <p>Trade South African agricultural commodity tokens on Stellar Testnet</p>
             </div>
 
             <!-- Wallet Connection -->
@@ -46,140 +56,191 @@
                 <div class="wallet-card">
                     <div class="wallet-icon">👛</div>
                     <h3>Connect Your Wallet</h3>
-                    <p>Connect your Freighter or Albedo wallet to start trading</p>
+                    <p>Connect Freighter wallet to start trading SA Agri Tokens</p>
                     <button class="btn btn-primary btn-large" id="connectWallet">
                         <span id="walletStatus">Connect Wallet</span>
                     </button>
                     <div class="wallet-info" id="walletInfo" style="display: none;">
-                        <p>Connected: <span id="walletAddress">-</span></p>
+                        <p><strong>Connected:</strong> <span id="walletAddress">-</span></p>
+                        <p class="wallet-hint">🌐 Network: Testnet</p>
                     </div>
                 </div>
             </div>
 
             <!-- Token Markets -->
+            <div class="markets-header">
+                <h2>🌾 Available Markets</h2>
+                <p>Live agricultural commodity tokens</p>
+            </div>
+
             <div class="markets-grid">
-                <div class="market-card">
+                <!-- MAIZE Token -->
+                <div class="market-card" data-token="MAIZE">
                     <div class="market-header">
                         <div class="market-info">
                             <span class="market-icon">🌽</span>
                             <div>
                                 <h3>MAIZE/XLM</h3>
                                 <p>White Maize Token</p>
+                                <small class="token-issuer" title="GCRX44F63XLA4NDO7H6L7JAWAJYW4GP63CHGNOQM4QY4NFIMVZC542WY">GCRX44F6...</small>
                             </div>
                         </div>
                         <div class="market-price">
-                            <div class="price">R 2,850.00</div>
-                            <div class="change positive">+2.4%</div>
+                            <div class="price">1.00 XLM</div>
+                            <div class="change positive">+0.0%</div>
                         </div>
                     </div>
                     <div class="market-stats">
                         <div class="stat">
-                            <span class="stat-label">24h Volume</span>
-                            <span class="stat-value">45.2K XLM</span>
+                            <span class="stat-label">Your Balance</span>
+                            <span class="stat-value" data-asset="MAIZE">
+                                <span class="balance-amount">0.0000</span> MAIZE
+                            </span>
                         </div>
                         <div class="stat">
-                            <span class="stat-label">24h High</span>
-                            <span class="stat-value">R 2,890</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-label">24h Low</span>
-                            <span class="stat-value">R 2,810</span>
+                            <span class="stat-label">Total Supply</span>
+                            <span class="stat-value">10,000</span>
                         </div>
                     </div>
-                    <button class="btn btn-primary" onclick="openTradeModal('MAIZE')">Trade Now</button>
+                    <div class="market-actions">
+                        <button class="btn btn-primary btn-trade" onclick="openTradeModal('MAIZE', 'buy')" disabled>
+                            🛒 Buy MAIZE
+                        </button>
+                        <button class="btn btn-secondary btn-trade" onclick="openTradeModal('MAIZE', 'sell')" disabled>
+                            💰 Sell MAIZE
+                        </button>
+                        <button class="btn btn-outline" onclick="addTrustline('MAIZE')" disabled>
+                            ➕ Add Trustline
+                        </button>
+                    </div>
                 </div>
 
-                <div class="market-card">
+                <!-- WHEAT Token -->
+                <div class="market-card" data-token="WHEAT">
                     <div class="market-header">
                         <div class="market-info">
                             <span class="market-icon">🌾</span>
                             <div>
                                 <h3>WHEAT/XLM</h3>
                                 <p>Milling Wheat Token</p>
+                                <small class="token-issuer" title="GCGPWVIIRAZNPJNV5LEOMULOTN6PXYW767K6VYTUTSX3UO5S7TC2FVC7">GCGPWVII...</small>
                             </div>
                         </div>
                         <div class="market-price">
-                            <div class="price">R 3,120.00</div>
-                            <div class="change negative">-1.2%</div>
+                            <div class="price">1.00 XLM</div>
+                            <div class="change positive">+0.0%</div>
                         </div>
                     </div>
                     <div class="market-stats">
                         <div class="stat">
-                            <span class="stat-label">24h Volume</span>
-                            <span class="stat-value">32.8K XLM</span>
+                            <span class="stat-label">Your Balance</span>
+                            <span class="stat-value" data-asset="WHEAT">
+                                <span class="balance-amount">0.0000</span> WHEAT
+                            </span>
                         </div>
                         <div class="stat">
-                            <span class="stat-label">24h High</span>
-                            <span class="stat-value">R 3,165</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-label">24h Low</span>
-                            <span class="stat-value">R 3,095</span>
+                            <span class="stat-label">Total Supply</span>
+                            <span class="stat-value">10,000</span>
                         </div>
                     </div>
-                    <button class="btn btn-primary" onclick="openTradeModal('WHEAT')">Trade Now</button>
+                    <div class="market-actions">
+                        <button class="btn btn-primary btn-trade" onclick="openTradeModal('WHEAT', 'buy')" disabled>
+                            🛒 Buy WHEAT
+                        </button>
+                        <button class="btn btn-secondary btn-trade" onclick="openTradeModal('WHEAT', 'sell')" disabled>
+                            💰 Sell WHEAT
+                        </button>
+                        <button class="btn btn-outline" onclick="addTrustline('WHEAT')" disabled>
+                            ➕ Add Trustline
+                        </button>
+                    </div>
                 </div>
 
-                <div class="market-card">
+                <!-- SOYSA Token -->
+                <div class="market-card" data-token="SOYSA">
                     <div class="market-header">
                         <div class="market-info">
                             <span class="market-icon">🫘</span>
                             <div>
                                 <h3>SOYSA/XLM</h3>
                                 <p>Soybean Token</p>
+                                <small class="token-issuer" title="GCBM5SBKZQUMHIFY4BU7DBIUNHYYZP5ACRQBGBECJX2DKTN5R5EJBAM3">GCBM5SBK...</small>
                             </div>
                         </div>
                         <div class="market-price">
-                            <div class="price">R 5,450.00</div>
-                            <div class="change positive">+5.8%</div>
+                            <div class="price">1.00 XLM</div>
+                            <div class="change positive">+0.0%</div>
                         </div>
                     </div>
                     <div class="market-stats">
                         <div class="stat">
-                            <span class="stat-label">24h Volume</span>
-                            <span class="stat-value">28.5K XLM</span>
+                            <span class="stat-label">Your Balance</span>
+                            <span class="stat-value" data-asset="SOYSA">
+                                <span class="balance-amount">0.0000</span> SOYSA
+                            </span>
                         </div>
                         <div class="stat">
-                            <span class="stat-label">24h High</span>
-                            <span class="stat-value">R 5,485</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-label">24h Low</span>
-                            <span class="stat-value">R 5,150</span>
+                            <span class="stat-label">Total Supply</span>
+                            <span class="stat-value">10,000</span>
                         </div>
                     </div>
-                    <button class="btn btn-primary" onclick="openTradeModal('SOYSA')">Trade Now</button>
+                    <div class="market-actions">
+                        <button class="btn btn-primary btn-trade" onclick="openTradeModal('SOYSA', 'buy')" disabled>
+                            🛒 Buy SOYSA
+                        </button>
+                        <button class="btn btn-secondary btn-trade" onclick="openTradeModal('SOYSA', 'sell')" disabled>
+                            💰 Sell SOYSA
+                        </button>
+                        <button class="btn btn-outline" onclick="addTrustline('SOYSA')" disabled>
+                            ➕ Add Trustline
+                        </button>
+                    </div>
                 </div>
             </div>
 
             <!-- Info Banner -->
             <div class="info-banner">
                 <div class="info-content">
-                    <h3>🚀 Coming Soon: Full Trading Interface</h3>
-                    <p>We're building a complete Stellar DEX integration with real-time trading, charts, and portfolio management. 
-                       In the meantime, you can trade these tokens on <a href="https://stellarterm.com" target="_blank">StellarTerm</a> 
-                       or <a href="https://stellarx.com" target="_blank">StellarX</a>.</p>
+                    <h3>🚀 Live Trading on Stellar Testnet!</h3>
+                    <p>
+                        <strong>Your tokens are LIVE!</strong> Connect your Freighter wallet to start trading. 
+                        Currently on <strong>Testnet</strong> for safe testing. Get free testnet XLM from 
+                        <a href="https://laboratory.stellar.org/#account-creator?network=test" target="_blank" rel="noopener">Stellar Laboratory</a>.
+                    </p>
+                    <p style="margin-top: 12px;">
+                        <strong>New to Freighter?</strong> Install from 
+                        <a href="https://www.freighter.app/" target="_blank" rel="noopener">freighter.app</a> and 
+                        switch to <strong>Testnet</strong> in settings.
+                    </p>
                 </div>
             </div>
 
             <!-- How to Trade -->
             <div class="trade-guide">
-                <h2>How to Trade</h2>
+                <h2>📖 How to Trade</h2>
                 <div class="guide-steps">
                     <div class="guide-step">
                         <div class="guide-number">1</div>
-                        <h4>Install Freighter Wallet</h4>
-                        <p>Download the <a href="https://www.freighter.app/" target="_blank">Freighter browser extension</a> and create your Stellar wallet.</p>
+                        <div class="guide-step-content">
+                            <h4>Install Freighter</h4>
+                            <p>Get the <a href="https://www.freighter.app/" target="_blank" rel="noopener">Freighter wallet</a> 
+                            browser extension and create/import your Stellar account.</p>
+                        </div>
                     </div>
                     <div class="guide-step">
                         <div class="guide-number">2</div>
-                        <h4>Add XLM to Your Wallet</h4>
-                        <p>Purchase XLM from an exchange and send it to your Freighter wallet address.</p>
+                        <div class="guide-step-content">
+                            <h4>Get Testnet XLM</h4>
+                            <p>Visit <a href="https://laboratory.stellar.org/#account-creator?network=test" target="_blank" rel="noopener">
+                            Stellar Laboratory</a> to fund your testnet account with free XLM.</p>
+                        </div>
                     </div>
                     <div class="guide-step">
                         <div class="guide-number">3</div>
-                        <h4>Connect & Trade</h4>
-                        <p>Connect your wallet here and trade agricultural tokens directly on the Stellar DEX.</p>
+                        <div class="guide-step-content">
+                            <h4>Connect & Trade</h4>
+                            <p>Connect your wallet above, add trustlines for tokens, then buy/sell agricultural tokens!</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -198,20 +259,20 @@
                 </div>
                 <div class="footer-section">
                     <h4>Resources</h4>
-                    <a href="#">Whitepaper</a>
                     <a href="index.html#about">About Us</a>
                     <a href="index.html#tokens">Tokens</a>
+                    <a href="TOKENS_README.md" target="_blank">Token Docs</a>
                 </div>
                 <div class="footer-section">
                     <h4>Network</h4>
-                    <a href="https://stellar.org" target="_blank">Stellar Network</a>
-                    <a href="https://laboratory.stellar.org" target="_blank">Stellar Lab</a>
-                    <a href="https://stellarterm.com" target="_blank">StellarTerm</a>
+                    <a href="https://stellar.org" target="_blank" rel="noopener">Stellar Network</a>
+                    <a href="https://laboratory.stellar.org" target="_blank" rel="noopener">Stellar Lab</a>
+                    <a href="https://stellar.expert/explorer/testnet" target="_blank" rel="noopener">Explorer</a>
                 </div>
                 <div class="footer-section">
                     <h4>Contact</h4>
                     <p>Email: info@saagritokens.com</p>
-                    <p>South Africa</p>
+                    <p>South Africa 🇿🇦</p>
                 </div>
             </div>
             <div class="footer-bottom">
