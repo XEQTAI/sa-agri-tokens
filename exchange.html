@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exchange - SA Agri Tokens</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="exchange.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <span class="logo-icon">🌾</span>
+                    <span class="logo-text">SA Agri Tokens</span>
+                </div>
+                <div class="nav-menu" id="navMenu">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="index.html#about" class="nav-link">About</a>
+                    <a href="index.html#tokens" class="nav-link">Tokens</a>
+                    <a href="exchange.html" class="nav-link">Exchange</a>
+                    <a href="index.html#contact" class="nav-link">Contact</a>
+                </div>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Exchange Section -->
+    <section class="exchange-section">
+        <div class="container">
+            <div class="exchange-header">
+                <h1>Token Exchange</h1>
+                <p>Trade South African agricultural commodity tokens on the Stellar network</p>
+            </div>
+
+            <!-- Wallet Connection -->
+            <div class="wallet-section">
+                <div class="wallet-card">
+                    <div class="wallet-icon">👛</div>
+                    <h3>Connect Your Wallet</h3>
+                    <p>Connect your Freighter or Albedo wallet to start trading</p>
+                    <button class="btn btn-primary btn-large" id="connectWallet">
+                        <span id="walletStatus">Connect Wallet</span>
+                    </button>
+                    <div class="wallet-info" id="walletInfo" style="display: none;">
+                        <p>Connected: <span id="walletAddress">-</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Token Markets -->
+            <div class="markets-grid">
+                <div class="market-card">
+                    <div class="market-header">
+                        <div class="market-info">
+                            <span class="market-icon">🌽</span>
+                            <div>
+                                <h3>MAIZE/XLM</h3>
+                                <p>White Maize Token</p>
+                            </div>
+                        </div>
+                        <div class="market-price">
+                            <div class="price">R 2,850.00</div>
+                            <div class="change positive">+2.4%</div>
+                        </div>
+                    </div>
+                    <div class="market-stats">
+                        <div class="stat">
+                            <span class="stat-label">24h Volume</span>
+                            <span class="stat-value">45.2K XLM</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">24h High</span>
+                            <span class="stat-value">R 2,890</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">24h Low</span>
+                            <span class="stat-value">R 2,810</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" onclick="openTradeModal('MAIZE')">Trade Now</button>
+                </div>
+
+                <div class="market-card">
+                    <div class="market-header">
+                        <div class="market-info">
+                            <span class="market-icon">🌾</span>
+                            <div>
+                                <h3>WHEAT/XLM</h3>
+                                <p>Milling Wheat Token</p>
+                            </div>
+                        </div>
+                        <div class="market-price">
+                            <div class="price">R 3,120.00</div>
+                            <div class="change negative">-1.2%</div>
+                        </div>
+                    </div>
+                    <div class="market-stats">
+                        <div class="stat">
+                            <span class="stat-label">24h Volume</span>
+                            <span class="stat-value">32.8K XLM</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">24h High</span>
+                            <span class="stat-value">R 3,165</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">24h Low</span>
+                            <span class="stat-value">R 3,095</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" onclick="openTradeModal('WHEAT')">Trade Now</button>
+                </div>
+
+                <div class="market-card">
+                    <div class="market-header">
+                        <div class="market-info">
+                            <span class="market-icon">🫘</span>
+                            <div>
+                                <h3>SOYSA/XLM</h3>
+                                <p>Soybean Token</p>
+                            </div>
+                        </div>
+                        <div class="market-price">
+                            <div class="price">R 5,450.00</div>
+                            <div class="change positive">+5.8%</div>
+                        </div>
+                    </div>
+                    <div class="market-stats">
+                        <div class="stat">
+                            <span class="stat-label">24h Volume</span>
+                            <span class="stat-value">28.5K XLM</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">24h High</span>
+                            <span class="stat-value">R 5,485</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">24h Low</span>
+                            <span class="stat-value">R 5,150</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" onclick="openTradeModal('SOYSA')">Trade Now</button>
+                </div>
+            </div>
+
+            <!-- Info Banner -->
+            <div class="info-banner">
+                <div class="info-content">
+                    <h3>🚀 Coming Soon: Full Trading Interface</h3>
+                    <p>We're building a complete Stellar DEX integration with real-time trading, charts, and portfolio management. 
+                       In the meantime, you can trade these tokens on <a href="https://stellarterm.com" target="_blank">StellarTerm</a> 
+                       or <a href="https://stellarx.com" target="_blank">StellarX</a>.</p>
+                </div>
+            </div>
+
+            <!-- How to Trade -->
+            <div class="trade-guide">
+                <h2>How to Trade</h2>
+                <div class="guide-steps">
+                    <div class="guide-step">
+                        <div class="guide-number">1</div>
+                        <h4>Install Freighter Wallet</h4>
+                        <p>Download the <a href="https://www.freighter.app/" target="_blank">Freighter browser extension</a> and create your Stellar wallet.</p>
+                    </div>
+                    <div class="guide-step">
+                        <div class="guide-number">2</div>
+                        <h4>Add XLM to Your Wallet</h4>
+                        <p>Purchase XLM from an exchange and send it to your Freighter wallet address.</p>
+                    </div>
+                    <div class="guide-step">
+                        <div class="guide-number">3</div>
+                        <h4>Connect & Trade</h4>
+                        <p>Connect your wallet here and trade agricultural tokens directly on the Stellar DEX.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo">
+                        <span class="logo-icon">🌾</span>
+                        <span class="logo-text">SA Agri Tokens</span>
+                    </div>
+                    <p>Bringing blockchain innovation to South African agriculture.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <a href="#">Whitepaper</a>
+                    <a href="index.html#about">About Us</a>
+                    <a href="index.html#tokens">Tokens</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Network</h4>
+                    <a href="https://stellar.org" target="_blank">Stellar Network</a>
+                    <a href="https://laboratory.stellar.org" target="_blank">Stellar Lab</a>
+                    <a href="https://stellarterm.com" target="_blank">StellarTerm</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Email: info@saagritokens.com</p>
+                    <p>South Africa</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 SA Agri Tokens. Built on Stellar Network.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="exchange.js"></script>
+</body>
+</html>
