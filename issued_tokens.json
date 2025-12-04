@@ -1,0 +1,29 @@
+[
+  {
+    "token": "MAIZE",
+    "code": "MAIZE",
+    "issuer": "GCRX44F63XLA4NDO7H6L7JAWAJYW4GP63CHGNOQM4QY4NFIMVZC542WY",
+    "distributor": "GAYAWV5JVDKY2JFEQTQCUMIQFNL6WDKQ2J6DKKICJHXUJ5RDL5NJE4Q3",
+    "amount_issued": "10,000",
+    "tx_hash": "a04b23e0fd9f66fb62236e8910f6a60c116e8848455eec089c11cbaae51e1774",
+    "explorer_url": "https://stellar.expert/explorer/testnet/tx/a04b23e0fd9f66fb62236e8910f6a60c116e8848455eec089c11cbaae51e1774"
+  },
+  {
+    "token": "WHEAT",
+    "code": "WHEAT",
+    "issuer": "GCGPWVIIRAZNPJNV5LEOMULOTN6PXYW767K6VYTUTSX3UO5S7TC2FVC7",
+    "distributor": "GDKYMXPCPTZHZ6YUACEBL6ZJ2IK3CPBGETSG6UMWK7VSFZQ3SFBCTYT4",
+    "amount_issued": "10,000",
+    "tx_hash": "8dfb4f557fea8306a8f83696e0217ba9abe1f2e0fa943b3eb3bb222ebd289639",
+    "explorer_url": "https://stellar.expert/explorer/testnet/tx/8dfb4f557fea8306a8f83696e0217ba9abe1f2e0fa943b3eb3bb222ebd289639"
+  },
+  {
+    "token": "SOYSA",
+    "code": "SOYSA",
+    "issuer": "GCBM5SBKZQUMHIFY4BU7DBIUNHYYZP5ACRQBGBECJX2DKTN5R5EJBAM3",
+    "distributor": "GAKEENL46CTZJ7WNECBNA5ZDSHXMQNAQZD3PTSGFN2S64GIWMG5VITUU",
+    "amount_issued": "10,000",
+    "tx_hash": "82cbde6a45316bcb717e3b87a5639377846b0a658e74791840c8869880e0c0a9",
+    "explorer_url": "https://stellar.expert/explorer/testnet/tx/82cbde6a45316bcb717e3b87a5639377846b0a658e74791840c8869880e0c0a9"
+  }
+]
