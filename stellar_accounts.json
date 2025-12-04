@@ -1,0 +1,38 @@
+{
+  "MAIZE": {
+    "issuer": {
+      "public_key": "GCRX44F63XLA4NDO7H6L7JAWAJYW4GP63CHGNOQM4QY4NFIMVZC542WY",
+      "secret_key": "SBLM24ONGS7EGDE4TPHTRF2TCXA5ZLFYUMIAJBO3LJS2GLN7DIWL7B52"
+    },
+    "distributor": {
+      "public_key": "GAYAWV5JVDKY2JFEQTQCUMIQFNL6WDKQ2J6DKKICJHXUJ5RDL5NJE4Q3",
+      "secret_key": "SAD6TS2BUVGZYG3UWD7C242UGXLPEBHCJGXEQKRFI25WQ56SOOTR72HA"
+    },
+    "token_code": "MAIZE",
+    "description": "White Maize Token - 1 token = 1 ton of SA white maize"
+  },
+  "WHEAT": {
+    "issuer": {
+      "public_key": "GCGPWVIIRAZNPJNV5LEOMULOTN6PXYW767K6VYTUTSX3UO5S7TC2FVC7",
+      "secret_key": "SB7GHSGNMENUKHT2XOKZMVMGNP67GTSRY5K74UWJ7JXY2VTGB5JUKUF7"
+    },
+    "distributor": {
+      "public_key": "GDKYMXPCPTZHZ6YUACEBL6ZJ2IK3CPBGETSG6UMWK7VSFZQ3SFBCTYT4",
+      "secret_key": "SCAF3RHBB6KAYLR5BFNZWBFY2LQMEZULMJ65D2MZLRZ3FAKO3IJY7VP3"
+    },
+    "token_code": "WHEAT",
+    "description": "Wheat Token - 1 token = 1 ton of SA milling wheat"
+  },
+  "SOYSA": {
+    "issuer": {
+      "public_key": "GCBM5SBKZQUMHIFY4BU7DBIUNHYYZP5ACRQBGBECJX2DKTN5R5EJBAM3",
+      "secret_key": "SB7IDWPQU3ATLCZSAQGMMCM7SMMUDRIUVDIM2MPBOCK4I453MWGJL3MK"
+    },
+    "distributor": {
+      "public_key": "GAKEENL46CTZJ7WNECBNA5ZDSHXMQNAQZD3PTSGFN2S64GIWMG5VITUU",
+      "secret_key": "SBAK6IW7F6LM4V56PRIHJXJHKHAYVO7AWAL37BHYZGLI7AL6XOUKYPQD"
+    },
+    "token_code": "SOYSA",
+    "description": "Soybean Token - 1 token = 1 ton of SA soybeans"
+  }
+}
